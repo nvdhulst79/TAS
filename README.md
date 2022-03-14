@@ -18,7 +18,7 @@ Een beheerder kan...
 - een persoon (lid/oud lid) uit de lijst van personen verwijderen, mits deze niet aan een stuk is gekoppeld
 - bij een persoon specificeren of zijn/haar gegevens (die van vastgelegd in het archief) openbaar mogen worden gemaakt. Nadar te bepalen hoe gedetailleerd dit kan
 - bij een persoon een lijst van alternatieve namen beheren zodat omgegaan kan worden met naamswijzigingen bijv. wanneer iemand trouwt
-- een of meerder scans van een aankondiging toevoegen
+- een of meerdere scans van een aankondiging toevoegen
 - op basis van eerder toegevoegde scans de metadata van een stuk invullen, ***(nice-to-have)** ondersteund door OCR*
 
 #### Gebruik
