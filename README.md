@@ -4,6 +4,7 @@ Theodulfus Archief Systeem
 TAS is een digitaal archief van gespeelde (en in sommige gevallen niet gespeeld) stukken. De gegevens zijn gebaseerd op de tekst en informatie op de aankondigingen die verstuurd zijn.
 Waar mogelijk is de originele aankondiging als afbeelding opgenomen.
 De stukken zijn doorzoekbaar op basis van verschillende velden, bijv. op datum of op persoon.
+Het betreft een web-based systeem, zowel beheer als raadplegen vindt plaats in de browser. Op deze manier kan eenvoudig door meerdere personen in het archief gewerkt worden, is het archief eenvoudig te raadplegen en eventueel te integreren en de bestaande theodulfus website.
 ## Use cases
 Om de gewenste functionaliteit af te kaderen en op een non-technische manier te beschrijven, is deze beschreven de volgende use-cases:
 #### Beheer
@@ -35,6 +36,8 @@ Het datamodel voor de archief-data. Niet opgenomen hierin zijn de datastructuren
 Om ervoor te zorgen dat dit systeem bruikbaar en te onderhouden is en blijft, wordt de broncode opgeslagen in Github: https://github.com/nvdhulst79/TAS
 Het betreft maatwerk code, dus een bepaalde kennis een vaardigheid met programmeren zal vereist zijn om hierin te werken. Om dit zo eenvoudig mogelijk te maken wordt zoveel mogelijk gebruik gemaakt van proven technology en breed ondersteunde platforms.
 Algemene documentatie zal zoveel mogelijk in dit document (readme.md) worden bijgehouden, specifieke documentatie als comments in de code. Zo nodig zal er een instructie voor beheerders en/of gebruikers worden opgesteld.
+
+#### Hosting
 
 #### Programmeertalen
 - Python
