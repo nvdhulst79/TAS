@@ -31,6 +31,7 @@ Een gebruiker kan...
 - het archief doorzoeken op persoon (speler, regie of crew, wellicht te specificeren)
 ## Datamodel
 Het datamodel voor de archief-data. Niet opgenomen hierin zijn de datastructuren voor gebruikersbeheer, logging, e.d.
+![TAS Datamodel](./Datamodel.jpg "TAS Datamodel")
 
 ## Documentatie
 Om ervoor te zorgen dat dit systeem bruikbaar en te onderhouden is en blijft, wordt de broncode opgeslagen in Github: https://github.com/nvdhulst79/TAS
