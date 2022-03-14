@@ -6,7 +6,7 @@ Waar mogelijk is de originele aankondiging als afbeelding opgenomen.
 De stukken zijn doorzoekbaar op basis van verschillende velden, bijv. op datum of op persoon.
 Het betreft een web-based systeem, zowel beheer als raadplegen vindt plaats in de browser. Op deze manier kan eenvoudig door meerdere personen in het archief gewerkt worden, is het archief eenvoudig te raadplegen en eventueel te integreren en de bestaande theodulfus website.
 ## Use cases
-Om de gewenste functionaliteit af te kaderen en op een non-technische manier te beschrijven, is deze beschreven de volgende use-cases:
+Om de gewenste functionaliteit af te kaderen en op een non-technische manier te beschrijven, is deze beschreven in de volgende use-cases:
 #### Beheer
 Een beheerder kan...
 - een stuk, en de bijbehorende metadata, toevoegen
