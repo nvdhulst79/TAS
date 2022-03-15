@@ -1,4 +1,5 @@
 {
-    "python.defaultInterpreterPath": "C:\\Users\\nvdhulst\\.virtualenvs\\tas-t7CiXGdl\\Scripts\\python"
+    "python.defaultInterpreterPath": "C:\\Users\\nvdhulst\\.virtualenvs\\tas-t7CiXGdl\\Scripts\\python",
+    "git.ignoreLimitWarning": true
 
 }
