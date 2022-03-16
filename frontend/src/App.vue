@@ -1,34 +1,66 @@
 <template>
-    <div id="app">
-        <header>
-          <router-link to="/">
-            <h1>Awesome Blog</h1>
-          </router-link>
-        </header>
-        <router-view />
-    </div>
+  <div id="app">
+    <stuk-list></stuk-list>
+    <create-stuk></create-stuk>
+  </div>
 </template>
 
 <script>
-export default {
-  name: 'App',
-}
+/* eslint-disable */
+  import StukList from './components/StukList'
+  import CreateStuk from './components/CreateStuk'
+
+  export default {
+    name: 'app',
+    components: {
+      StukList,
+      CreateStuk
+    }
+  }
 </script>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-}
-body {
-  margin: 0;
-  padding: 1.5rem;
-}
-* + * {
-  margin-top: 1.5rem;
-}
-#app {
-  margin: 0;
-  padding: 0;
-}
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, sans-serif;
+  }
+
+  input {
+    max-width: 500px;
+  }
+
+  .gray {
+    color: #828282;
+  }
+
+  .orange {
+    background-color: #ff6600;
+  }
+
+  .background-gray {
+    background-color: rgb(246,246,239);
+  }
+
+  .f11 {
+    font-size: 11px;
+  }
+
+  .w85 {
+    width: 85%;
+  }
+
+  .button {
+    font-family: monospace;
+    font-size: 10pt;
+    color: black;
+    background-color: buttonface;
+    text-align: center;
+    padding: 2px 6px 3px;
+    border-width: 2px;
+    border-style: outset;
+    border-color: buttonface;
+    cursor: pointer;
+    max-width: 250px;
+  }
 </style>
