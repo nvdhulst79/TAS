@@ -1,7 +1,7 @@
 <template>
   <div>
+      <h3>Item present!</h3>
       <b>{{stuk.titel}}</b><br/>
-      {{stuk.auteur}}<br/>
       {{stuk.genre.naam}} ({{stuk.genre.omschrijving}})
   </div>
 </template>

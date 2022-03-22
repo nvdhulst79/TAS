@@ -1,46 +1,32 @@
-// 1
-import { ApolloClient } from 'apollo-client'
-import { HttpLink } from 'apollo-link-http'
-import { InMemoryCache } from 'apollo-cache-inmemory'
-import 'tachyons'
-import Vue from 'vue'
 
-// 2
-import VueApollo from 'vue-apollo'
-import App from './App'
-// import router from './router'
+import { createApp, provide, h } from 'vue'
+import router from './router'
+import { ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client/core'
+import { DefaultApolloClient } from '@vue/apollo-composable'
+import App from "./App.vue";
 
-Vue.config.productionTip = false
-
-// 3
-const httpLink = new HttpLink({
+// HTTP connection to the API
+const httpLink = createHttpLink({
   // You should use an absolute URL here
-  uri: 'http://127.0.0.1:8000/graphql/'
+  uri: 'http://localhost:8000/graphql/',
 })
 
-// 4
+// Cache implementation
+const cache = new InMemoryCache()
+
+// Create the apollo client
 const apolloClient = new ApolloClient({
   link: httpLink,
-  cache: new InMemoryCache(),
-  connectToDevTools: true
+  cache,
 })
 
-// 5
-Vue.use(VueApollo)
+const app = createApp({
+  setup () {
+    provide(DefaultApolloClient, apolloClient)
+  },
 
-// 6
-const apolloProvider = new VueApollo({
-  defaultClient: apolloClient,
-  defaultOptions: {
-    $loadingKey: 'loading'
-  }
+  render: () => h(App),
 })
 
-/* eslint-disable no-new */
-new Vue({
-  el: '#app',
-  // 7
-  provide: apolloProvider.provide(),
-  // router,
-  render: h => h(App)
-})
+app.use(router)
+app.mount('#app')

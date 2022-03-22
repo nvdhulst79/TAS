@@ -1,66 +1,30 @@
 <template>
-  <div id="app">
-    <stuk-list></stuk-list>
-    <create-stuk></create-stuk>
-  </div>
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/about">About</router-link>
+  </nav>
+  <router-view/>
 </template>
 
-<script>
-/* eslint-disable */
-  import StukList from './components/StukList'
-  import CreateStuk from './components/CreateStuk'
-
-  export default {
-    name: 'app',
-    components: {
-      StukList,
-      CreateStuk
-    }
-  }
-</script>
-
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: Verdana, Geneva, sans-serif;
-  }
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+}
 
-  input {
-    max-width: 500px;
-  }
+nav {
+  padding: 30px;
+}
 
-  .gray {
-    color: #828282;
-  }
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
 
-  .orange {
-    background-color: #ff6600;
-  }
-
-  .background-gray {
-    background-color: rgb(246,246,239);
-  }
-
-  .f11 {
-    font-size: 11px;
-  }
-
-  .w85 {
-    width: 85%;
-  }
-
-  .button {
-    font-family: monospace;
-    font-size: 10pt;
-    color: black;
-    background-color: buttonface;
-    text-align: center;
-    padding: 2px 6px 3px;
-    border-width: 2px;
-    border-style: outset;
-    border-color: buttonface;
-    cursor: pointer;
-    max-width: 250px;
-  }
+nav a.router-link-exact-active {
+  color: #42b983;
+}
 </style>

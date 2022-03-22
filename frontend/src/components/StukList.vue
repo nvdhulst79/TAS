@@ -1,34 +1,32 @@
 <template>
   <div>
-    <h4 v-if="loading">Loading...</h4>
+    <h2>Stuklist present</h2>
+    <div v-if="loading">Loading...</div>
     <stuk-item
-      v-for="stuk in alleStukken"
+      v-for="stuk of result.alleStukken"
       :key="stuk.id"
       :stuk="stuk">
+      stukstuk
     </stuk-item>
   </div>
 </template>
 
 <script>
-/* eslint-disable */
 import { ALLE_STUKKEN_QUERY } from '../constants/graphql'
-import StukItem from './StukItem'
 
+import { useQuery } from '@vue/apollo-composable'
+import StukItem from './StukItem.vue'
 export default {
-    name: 'StukList',
-    data () {
-        return {
-            alleStukken: [],
-            loading: 0
-        }
-    },
-    components: {
-        StukItem
-    },
-    apollo: {
-        alleStukken: {
-            query: ALLE_STUKKEN_QUERY
-        }
+  setup(){
+    const {result, loading} = useQuery(ALLE_STUKKEN_QUERY)
+    
+    
+    return {
+      result,
+      loading,
     }
+
+  },
+  components: { StukItem}
 }
 </script>
