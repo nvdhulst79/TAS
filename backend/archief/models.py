@@ -65,7 +65,7 @@ class Persoon(models.Model):
     )
 
     def VolledigeNaam(self):
-        return f'{self.voornaam} {self.tussenvoegsel} {self.achternaam}'.strip().replace('  ', ' ')
+        return f'{self.achternaam}, {self.voornaam} {self.tussenvoegsel} '.strip().replace('  ', ' ')
 
     def __str__(self):
         return self.VolledigeNaam()
@@ -88,6 +88,9 @@ class Stuk (models.Model):
     
     #TODO aankondiging afbeelding(en)
     #TODO overige afbeeldingen
+
+    def BepaalJaar(self):
+        pass
 
     def __str__(self):
         return self.titel
