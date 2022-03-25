@@ -129,6 +129,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = 'Media/'
 MEDIA_URL = 'Media/'
 
+IMPORT_ROOT = 'Import/'
+IMPORT_EXTENSIONS = ["jpg", "png", "gif"]
+
 # Graphene settings
 
 # wat monkeypatching voor import error
