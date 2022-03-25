@@ -3,7 +3,6 @@ from multiprocessing import managers
 from pdb import post_mortem
 from django.db import models
 from django.conf import settings
-from django.utils.html import format_html
 
 # Create your models here.
 
@@ -82,7 +81,7 @@ class Persoon(models.Model):
     def __str__(self):
         return self.VolledigeNaam()
 
-# Stuk, de hoofdeintiteit van het archief
+# Stuk, de hoofdentiteit van het archief
 class Stuk (models.Model):
     class Meta:
         verbose_name_plural = "stukken"
@@ -105,7 +104,7 @@ class Stuk (models.Model):
     #TODO overige afbeeldingen
 
     def BepaalJaar(self):
-        pass
+        return max(uitvoering.datum for uitvoering in self.uitvoering_set.all()).year
 
     def __str__(self):
         return self.titel
