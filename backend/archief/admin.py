@@ -16,9 +16,19 @@ class PersoonAdmin(admin.ModelAdmin):
 
 class AfbeeldingInline(admin.TabularInline):
     model = Afbeelding
-    fields = ('image', 'type', 'breedte', 'hoogte')
-    readonly_fields = ('breedte', 'hoogte')
+    fields = ('image', 'thumbnail', 'type', 'breedte', 'hoogte')
+    readonly_fields = ('breedte', 'hoogte', 'thumbnail')
     extra = 0
+
+    def thumbnail(self, obj):
+        from django.utils.html import format_html
+
+        if obj.image:
+            return format_html('<img src="%s"  height="100px"/>' % obj.image.url)
+        else:
+            return 'No_image'
+    
+    thumbnail.short_descriptions = 'Thumbnail'
 
 class DeelnameInline(admin.StackedInline):
     model = Deelname

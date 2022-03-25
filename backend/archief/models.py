@@ -3,6 +3,7 @@ from multiprocessing import managers
 from pdb import post_mortem
 from django.db import models
 from django.conf import settings
+from django.utils.html import format_html
 
 # Create your models here.
 
@@ -33,7 +34,7 @@ class Persoon(models.Model):
     class Meta:
         verbose_name_plural = "personen"
 
-    lidnummer = models.IntegerField(blank=True)
+    lidnummer = models.IntegerField(blank=True, null=True)
     voornaam = models.CharField(max_length=50, blank=True)
     tussenvoegsel = models.CharField(max_length=10, blank=True)
     achternaam = models.CharField(max_length=50)
@@ -137,6 +138,8 @@ class Afbeelding (models.Model):
     hoogte = models.IntegerField(blank = True, null = True)
 
     image = models.ImageField(height_field = 'hoogte', width_field = 'breedte')
+
+
 
 # Koppelt een persoon aan een stuk en legt vast wat die daar deed
 # Koppelklasse voor Stuk.deelnemers
