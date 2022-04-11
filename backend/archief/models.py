@@ -1,5 +1,3 @@
-from msilib.schema import Font
-from multiprocessing import managers
 from pdb import post_mortem
 from django.db import models
 from django.conf import settings

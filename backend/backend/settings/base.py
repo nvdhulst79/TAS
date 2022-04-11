@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-xts$ogisw*gvmyfxljk(5^dq*^-a!iwfh@*ln!uxsnwvssusc%'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['nielsvanderhulst.nl']
 
 
 # Application definition
@@ -79,11 +79,22 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'gvkyfawr_tas',
+        'USER': 'gvkyfawr_tas',
+        'PASSWORD': 'qdXJn59w4hyAi2',
+        'HOST': 'localhost',
     }
 }
 
+# Fake PyMySQL's version and install as MySQLdb
+# https://adamj.eu/tech/2020/02/04/how-to-use-pymysql-with-django/
+try:
+    import pymysql
+    pymysql.version_info = (1, 4, 2, "final", 0)
+    pymysql.install_as_MySQLdb()
+except:
+    pass
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -118,9 +129,13 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
-
+import os
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static/'
+STATIC_ROOT = '/home/gvkyfawr/projects/tas/backend/static/'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
@@ -146,4 +161,4 @@ GRAPHENE = {
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = False
-CORS_ORIGIN_WHITELIST = ("http://localhost:8080",)
+CORS_ORIGIN_WHITELIST = ("http://localhost:8080","https://www.nielsvanderhulst.nl")
