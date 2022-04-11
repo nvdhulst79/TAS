@@ -9,6 +9,7 @@ graphene-django = "*"
 django-cors-headers = "*"
 pillow = "*"
 termcolor = "*"
+colorama = "*"
 
 [dev-packages]
 

@@ -87,9 +87,10 @@ class Stuk (models.Model):
     titel = models.CharField(max_length=100)
     auteur = models.CharField(max_length=100, blank=True)
     auteur_persoon = models.ForeignKey(Persoon, blank=True, null=True, on_delete=models.PROTECT)
+    jaar = models.IntegerField(blank=True, null=True)
     samenvatting = models.TextField(blank=True)
     beschrijving = models.TextField(blank=True)
-    genre = models.ForeignKey(Genre, on_delete=models.PROTECT)
+    genre = models.ForeignKey(Genre, blank=True, null=True, on_delete=models.PROTECT)
     deelnemers = models.ManyToManyField(
         Persoon,
         through='Deelname',
@@ -97,12 +98,16 @@ class Stuk (models.Model):
     )
 
     bijzonderheden = models.TextField(blank = True)
-    
-    #TODO aankondiging afbeelding(en)
-    #TODO overige afbeeldingen
 
-    def BepaalJaar(self):
+    intevoeren = models.BooleanField(default=False)
+
+    def get_Jaar(self):
         return max(uitvoering.datum for uitvoering in self.uitvoering_set.all()).year
+
+    def save(self, *args, **kwargs):
+        if self.jaar is None:
+            self.jaar = self.get_Jaar()
+        super(Stuk, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.titel

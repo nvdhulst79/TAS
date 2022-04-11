@@ -41,16 +41,10 @@ class UitvoeringInline(admin.StackedInline):
 @admin.register(Stuk)
 class StukAdmin(admin.ModelAdmin):
     model = Stuk
-    list_display = ('titel', 'JaarVeld')
+    list_display = ('titel', 'jaar')
     inlines = [
         AfbeeldingInline,
         DeelnameInline,
         UitvoeringInline
     ]
-    fields = ('titel', 'auteur', 'auteur_persoon', 'samenvatting', 'beschrijving', 'genre', 'bijzonderheden')
-
-    def JaarVeld(self, obj):
-        return obj.BepaalJaar()
-    JaarVeld.short_description = 'Jaar'
-    # TODO: Fix jaar sortering
-    # JaarVeld.admin_order_field = 'uitvoering'
+    fields = ('titel', 'jaar', 'auteur', 'auteur_persoon', 'samenvatting', 'beschrijving', 'genre', 'bijzonderheden')
