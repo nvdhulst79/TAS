@@ -8,6 +8,10 @@ https://docs.djangoproject.com/en/4.0/topics/settings/
 
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.0/ref/settings/
+
+
+Gebruik: python manage.py runserver --settings=backend.settings.development
+
 """
 
 from pathlib import Path
@@ -31,6 +35,7 @@ ALLOWED_HOSTS = ['nielsvanderhulst.nl']
 # Application definition
 
 INSTALLED_APPS = [
+    'grappelli',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

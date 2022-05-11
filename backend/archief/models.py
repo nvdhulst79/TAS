@@ -79,6 +79,7 @@ class Persoon(models.Model):
     def __str__(self):
         return self.VolledigeNaam()
 
+
 # Stuk, de hoofdentiteit van het archief
 class Stuk (models.Model):
     class Meta:

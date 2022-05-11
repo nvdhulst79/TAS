@@ -10,6 +10,7 @@ django-cors-headers = "*"
 pillow = "*"
 termcolor = "*"
 colorama = "*"
+django-grappelli = "*"
 
 [dev-packages]
 

@@ -19,4 +19,5 @@ DATABASES = {
     }
 }
 
+STATICFILES_DIRS = []
 STATIC_ROOT = 'static/'
