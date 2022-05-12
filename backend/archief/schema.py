@@ -27,6 +27,9 @@ class UitvoeringType(DjangoObjectType):
     class Meta:
         model = models.Uitvoering
 
+class AfbeeldingGQLType(DjangoObjectType):
+    class Meta:
+        model = models.Afbeelding
 
 
 class Query(graphene.ObjectType):

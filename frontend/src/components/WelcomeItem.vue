@@ -1,18 +1,15 @@
 <template>
-    <div class="item">
-        <i>
-            <slot name="thumbnail"></slot>
-        </i>
-        <div class="details">
-            <h3>
-                <slot name="titel"></slot>
-            </h3>
-            <slot name="auteur"></slot>
-            <div class="genre">
-                <slot name="genre"></slot>
-            </div>
-        </div>
+  <div class="item">
+    <i>
+      <slot name="icon"></slot>
+    </i>
+    <div class="details">
+      <h3>
+        <slot name="heading"></slot>
+      </h3>
+      <slot></slot>
     </div>
+  </div>
 </template>
 
 <style scoped>
