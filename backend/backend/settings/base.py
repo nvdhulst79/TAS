@@ -42,9 +42,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'users',
     'archief',
     'graphene_django',
-    'corsheaders'
+    'corsheaders',
+    # 'graphql_jwt.refresh_token.apps.RefreshTokenConfig'
+    'graphql_auth',
 ]
 
 MIDDLEWARE = [
@@ -119,6 +122,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+AUTH_USER_MODEL = 'users.CustomUser'
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
@@ -160,9 +164,22 @@ from django.utils.encoding import force_str
 django.utils.encoding.force_text = force_str
 
 GRAPHENE = {
-    "SCHEMA": "archief.schema.schema"
+    "SCHEMA": "archief.schema.schema",
+    "MIDDLEWARE": [
+        "graphql_jwt.middleware.JSONWebTokenMiddleware",
+    ]
 }
 
+AUTHENTICATION_BACKENDS = [
+    # 'graphql_jwt.backends.JSONWebTokenBackend',
+    'graphql_auth.backends.GraphQLAuthBackend',
+    'django.contrib.auth.backends.ModelBackend'
+]
+
+GRAPHQL_JWT = {
+    "JWT_VERIFY_EXPIRATION": True,
+    # "JWT_LONG_RUNNING_REFRESH_TOKEN": True,
+}
 
 # CORS
 CORS_ORIGIN_ALLOW_ALL = False
