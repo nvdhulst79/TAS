@@ -42,12 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_filters',
     'users',
     'archief',
     'graphene_django',
     'corsheaders',
-    # 'graphql_jwt.refresh_token.apps.RefreshTokenConfig'
-    'graphql_auth',
+    'graphql_jwt.refresh_token.apps.RefreshTokenConfig',
+    'graph_jwt'
+    # 'graphql_auth',
 ]
 
 MIDDLEWARE = [
@@ -164,15 +166,15 @@ from django.utils.encoding import force_str
 django.utils.encoding.force_text = force_str
 
 GRAPHENE = {
-    "SCHEMA": "archief.schema.schema",
+    "SCHEMA": "backend.schema.schema",
     "MIDDLEWARE": [
         "graphql_jwt.middleware.JSONWebTokenMiddleware",
     ]
 }
 
 AUTHENTICATION_BACKENDS = [
-    # 'graphql_jwt.backends.JSONWebTokenBackend',
-    'graphql_auth.backends.GraphQLAuthBackend',
+    'graphql_jwt.backends.JSONWebTokenBackend',
+    # 'graphql_auth.backends.GraphQLAuthBackend',
     'django.contrib.auth.backends.ModelBackend'
 ]
 

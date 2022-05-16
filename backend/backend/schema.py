@@ -1,5 +1,6 @@
 import graphene
 from graphene_django import DjangoObjectType
+from graphql_auth.schema import UserQuery, MeQuery
 
 from archief import models
 
@@ -32,7 +33,7 @@ class AfbeeldingGQLType(DjangoObjectType):
         model = models.Afbeelding
 
 
-class Query(graphene.ObjectType):
+class Query(UserQuery, MeQuery, graphene.ObjectType):
     alle_stukken = graphene.List(StukType)
     persoon_op_lidnummer = graphene.Field(PersoonType, lidnummer = graphene.String())
 
